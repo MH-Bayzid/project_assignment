@@ -11,12 +11,21 @@
 # Steps you need to follow...
 
 Step_1-> Download the project from the link below_
+https://github.com/MH-Bayzid/project_assignment/tree/master
 
 Step_2-> Find the project directory & open it_
 
-Step_3-> Open Your Command Prompt on the project folder & Run this command " php arisan serve "_
+Step_3-> Open Your Command Prompt on the project folder & Run these command 
+-> composer install 
+-> npm install
+-> npm run dev [IF any error-> ctrl:c ]
+-> cp .env.example .env
 
-Step_4-> Open php my admin pannel & import "project_assignment.sql" sql file, which i provided with the project. [N:B->If you change the database name in php myadmin pannel, you have to change database name in .env file too, which was located in project files.]
+Step_4-> Open php my admin pannel & import "project_assignment.sql" sql file, which i provided with the project. change database name in .env file as "project_assignment", which was located in project files.]
+
+Step_5-> Run those command..
+-> php artisan key:generate
+-> php artisan serve
 
 Step_5-> Use this link below [http://localhost:8000/login]-[email-> 'admin@gmail.com' pass-> 'password'], for login to admin dashboard or you can register too by clicking "create".
 
