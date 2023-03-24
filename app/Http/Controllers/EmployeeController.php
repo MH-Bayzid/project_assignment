@@ -10,21 +10,23 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class EmployeeController extends Controller
 {
-   function employee(){
-    $companies= Company::all();
-    $employees= Employee::paginate(5);
-    return view('admin.employee.list_employee',[
-        'companies'=>$companies,
-        'employees'=>$employees,
-    ]);
+    // employee list view
+    function employee(){
+        $companies= Company::all();
+        $employees= Employee::paginate(5);
+        return view('admin.employee.list_employee',[
+            'companies'=>$companies,
+            'employees'=>$employees,
+        ]);
    }
+    // employee data insert   
    function employee_store(Request $request){
+    // validation
     $request->validate([
         'name'=>'required',
-        'email'=>'required',
-        'website'=>'required',
-        'logo'=>'required|max:512',
-        'logo'=>'mimes:jpg,png,gif',
+        'company_id'=>'required',
+        'email'=>'required|email',
+        'phone'=>'required',
     ]);
     Employee::insert([
         'name'=>$request->name,
@@ -33,15 +35,17 @@ class EmployeeController extends Controller
         'phone'=>$request->phone,
         'created_at'=>Carbon::now(),
     ]);
-    toast('Employee Added!','success');
-    return back();
+    
+    return back()->withSuccess('Employee details Added!');
    }
+    // employee details delete   
    function delete_employee($employee_id){
         Employee::find($employee_id)->delete();
         toast('Employee Details Deleted!','info');
         return back();
         
    }
+    // employee details edit view   
    function edit_employee($employee_id){
         $employee= Employee::find($employee_id);
         $companies= Company::all();
@@ -50,6 +54,7 @@ class EmployeeController extends Controller
             'companies'=>$companies,
         ]);
    }
+   // employee details update
    function employee_update(Request $request){
         Employee::find($request->employee_id)->update([
             'name'=>$request->name,
