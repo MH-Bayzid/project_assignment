@@ -52,6 +52,9 @@
                 <form action="{{route('company.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h4 class="card-title text-center">Compnay Details</h4>
+                    @if (session('success'))
+                        <div class="alert alert-success text center">{{session('success')}}</div>
+                    @endif
                     <div class="form-group">
                         <label for="company_name">Name</label>
                         <input type="text" class="form-control" name="name" id="company_name" placeholder="Company Name">
