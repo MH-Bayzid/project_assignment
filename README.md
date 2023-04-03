@@ -31,4 +31,3 @@ Step_5-> Use this link below [http://localhost:8000/login]-[email-> 'admin@gmail
 
 ## These are the steps you need to follow
 
-## Lastly, If i get the opportunity to work with IT Medicus, I will make sure that you have made the right decision!
